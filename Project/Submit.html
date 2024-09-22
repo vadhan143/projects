@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="/Project/Project/css/Submit.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="login-section">
+            <img src="/Project/Project/image/KI Logo.jpeg" alt="" class="hero">
+            <div class="login-container">
+                <center>
+                <h2>EXAM CELL</h2>
+                </center>
+                <!-- <form id="login-form">
+                    <button type="submit" id="btn-1">Submit</button>
+                </form> -->
+            </div>
+        </div>
+            <!-- Table to show selected values -->
+            <table id="details-table">
+                <tr>
+                    <th>Batch</th>
+                    <th>Department</th>
+                    <th>Semester</th>
+                    <th>Course</th>
+                    <th>Course Code</th>
+                    <th>Name of Exam</th>
+                    <th>Name of Examiner</th>
+                    <th>Date of Valuation</th>
+                </tr>
+                <tr>
+                    <td id="batch-cell"></td>
+                    <td id="department-cell"></td>
+                    <td id="semester-cell"></td>
+                    <td id="course-cell"></td>
+                    <td id="course-code-cell"></td>
+                    <td id="exam-cell"></td>
+                    <td id="examiner-cell"></td>
+                    <td id="date-cell"></td>
+                </tr>
+            </table>
+
+        <!-- Modal for displaying output -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="output"></div>
+                <button id="download-excel-btn">Download as pdf</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/Project/Project/script/Submit.js"></script>
+   
+</body>
+</html>

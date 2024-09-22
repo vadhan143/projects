@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Login Form</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url("/Project/Project/image/KI\ backround.jpeg");
+            background-size: cover;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+            overflow: hidden;
+            /* Ensure no scroll bars */
+            overflow-y: auto;
+            /* height: auto; */
+            height: 80vh;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            margin-bottom: 12px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: #555;
+            font-weight: bold;
+        }
+        select, input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            box-sizing: border-box;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: 100px;
+            height: 30px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .btn.delete {
+            background-color: #f44336;
+            margin-top: 5px;
+        }
+        .btn.delete:hover {
+            background-color: #e53935;
+        }
+        .info-text {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        #btn-9 {
+            width: 80%;
+            padding: 5px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        #img {
+            position: absolute;
+            top: 2%;
+            left: 10px;
+            border-radius: 30px;
+            border-style: none;
+            width: 200px;
+            height: 120px;
+        }
+        .btn-6{
+            display: inline-block;
+            padding: 8px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: 100px;
+            height: 30px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 4%;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <img src="/Project/Project/image/ki.png" alt="" id="img">
+    <div class="form-container">
+        <h2 id="stick">Admin</h2>
+        <!-- Name of the Institute -->
+        <div class="form-group">
+            <label for="collegeDropdown">Name of the Institute</label>
+            <select id="collegeDropdown">
+                <option value="">Select a college</option>
+                <option value="kahe">KARPAGAM ACADEMY OF HIGHER EDUCATION</option>
+                <option value="kce">KARPAGAM COLLEGE OF ENGINEERING</option>
+                <option value="kit">KARPAGAM INSTITUTE OF TECHNOLOGY</option>
+            </select>
+            <input type="text" id="newCollege" placeholder="Enter new college name">
+            <button class="btn" onclick="addCollege()">Add</button>
+            
+            <!-- Remove Selected Option -->
+            <button class="btn delete" onclick="removeSelectedOption('collegeDropdown')">Remove</button>
+            
+            <!-- Clear All Options -->
+            <button class="btn delete" onclick="clearAllOptions('collegeDropdown')">Clear All</button>
+        </div>
+        <!-- Batch -->
+        <div class="form-group">
+            <label for="batchDropdown">Batch</label>
+            <select id="batchDropdown">
+                <option value="">Select a batch</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+                <option value="2027">2027</option>
+            </select>
+        
+            <!-- Input to add a new batch -->
+            <input type="text" id="newBatch" placeholder="Enter new batch">
+        
+            <!-- Button to add new batch -->
+            <button class="btn" onclick="addBatch()">Add</button>
+        
+            <!-- Button to remove selected batch -->
+            <button class="btn delete" onclick="removeSelectedOption('batchDropdown')">Remove</button>
+        
+            <!-- Button to clear all batch data -->
+            <button class="btn delete" onclick="clearAllOptions('batchDropdown')">Clear All</button>
+        </div>
+        
+        <div class="form-group">
+            <label for="departmentDropdown">Department</label>
+            <select id="departmentDropdown">
+                <option value="">Select a department</option>
+                <option value="CSE">Computer Science & Engineering</option>
+                <option value="ECE">Electronics & Communication Engineering</option>
+                <option value="ME">Mechanical Engineering</option>
+                <option value="EE">Electrical Engineering</option>
+            </select>
+            <input type="text" id="newDepartment" placeholder="Enter new department name">
+            <button class="btn" onclick="addDepartment()">Add</button>
+            
+            <!-- Button to remove selected department -->
+            <button class="btn delete" onclick="removeSelectedOption('departmentDropdown')">Remove</button>
+        
+            <!-- Button to clear all department options -->
+            <button class="btn delete" onclick="clearAllOptions('departmentDropdown')">Clear All</button>
+        </div>
+        
+        <!-- Semester -->
+        <div class="form-group">
+            <label for="semesterDropdown">Semester</label>
+            <select id="semesterDropdown">
+                <option value="">Select a semester</option>
+                <option value="1">Semester 1</option>
+                <option value="2">Semester 2</option>
+                <option value="3">Semester 3</option>
+                <option value="4">Semester 4</option>
+                <option value="5">Semester 5</option>
+                <option value="6">Semester 6</option>
+                <option value="7">Semester 7</option>
+                <option value="8">Semester 8</option>
+            </select>
+            <input type="text" id="newSemester" placeholder="Enter new semester">
+            <button class="btn" onclick="addSemester()">Add</button>
+        
+            <!-- Button to remove selected semester -->
+            <button class="btn delete" onclick="removeSelectedOption('semesterDropdown')">Remove</button>
+        
+            <!-- Button to clear all semesters -->
+            <button class="btn delete" onclick="clearAllOptions('semesterDropdown')">Clear All</button>
+        </div>
+        
+        <!-- Courses -->
+        <div class="form-group">
+            <label for="courseDropdown">Courses</label>
+            <select id="courseDropdown">
+                <option value="">Select a course</option>
+                <option value="Math">Mathematics</option>
+                <option value="CS">Computer Science</option>
+                <option value="Physics">Physics</option>
+                <option value="Chemistry">Chemistry</option>
+            </select>
+            <input type="text" id="newCourse" placeholder="Enter new course name">
+            <button class="btn" onclick="addCourse()">Add</button>
+            <input type="file" id="courseUpload" accept=".xlsx, .xls">
+            <button class="btn" onclick="handleFileUpload('courseUpload', 'courseDropdown')">Upload</button>
+        </div>
+        <!-- Name of the Examiner -->
+        <div class="form-group">
+            <label for="examinerDropdown">Name of the Examiner</label>
+            <select id="examinerDropdown">
+                <option value="">Select a value</option>
+            </select>
+            <input type="text" id="newExaminer" placeholder="Enter examiner's name">
+            <button class="btn" onclick="addExaminer()">Add</button>
+            <input type="file" id="examinerUpload" accept=".xlsx, .xls">
+            <button class="btn" onclick="handleFileUpload('examinerUpload', 'examinerDropdown')">Upload</button>
+        </div>
+        <div class="form-group">
+            <label for="studentDropdown">Name of the Student</label>
+            <select id="studentDropdown">
+                <option value="">Select a value</option>
+            </select>
+            <input type="text" id="newStudent" placeholder="Enter student's name">
+            <button class="btn" onclick="addStudent()">Add</button>
+            <input type="file" id="studentUpload" accept=".xlsx, .xls">
+            <button class="btn" onclick="handleFileUpload('studentUpload', 'studentDropdown')">Upload</button>
+        </div>
+        <button class="btn-6" onclick="viewStudents()">View</button>
+        <div class="info-text">
+            <button id="btn-9">Submit</button>
+        </div>
+         
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script>
+        function addCollege() {
+            const newCollegeName = document.getElementById("newCollege").value;
+            if (newCollegeName) {
+                const dropdown = document.getElementById("collegeDropdown");
+                dropdown.add(new Option(newCollegeName, newCollegeName));
+                document.getElementById("newCollege").value = ""; // Clear input
+            } else {
+                alert("Please enter a college name to add.");
+            }
+        }
+        function addDepartment() {
+            const newDepartmentName = document.getElementById("newDepartment").value;
+            if (newDepartmentName) {
+                const dropdown = document.getElementById("departmentDropdown");
+                dropdown.add(new Option(newDepartmentName, newDepartmentName));
+                document.getElementById("newDepartment").value = ""; // Clear input
+            } else {
+                alert("Please enter a department name to add.");
+            }
+        }
+        function addCourse() {
+            const newCourseName = document.getElementById("newCourse").value;
+            if (newCourseName) {
+                const dropdown = document.getElementById("courseDropdown");
+                dropdown.add(new Option(newCourseName, newCourseName));
+                document.getElementById("newCourse").value = ""; // Clear input
+            } else {
+                alert("Please enter a course name to add.");
+            }
+        }
+        function addExaminer() {
+            const newExaminerName = document.getElementById("newExaminer").value;
+            if (newExaminerName) {
+                const dropdown = document.getElementById("examinerDropdown");
+                dropdown.add(new Option(newExaminerName, newExaminerName));
+                document.getElementById("newExaminer").value = ""; // Clear input
+            } else {
+                alert("Please enter an examiner name to add.");
+            }
+        }
+        function addStudent() {
+            const newStudentName = document.getElementById("newStudent").value;
+            if (newStudentName) {
+                const dropdown = document.getElementById("studentDropdown");
+                dropdown.add(new Option(newStudentName, newStudentName));
+                document.getElementById("newStudent").value = ""; // Clear input
+            } else {
+                alert("Please enter a student name to add.");
+            }
+        }
+        function handleFileUpload(fileInputId, dropdownId) {
+            const fileInput = document.getElementById(fileInputId);
+            const file = fileInput.files[0];
+            if (!file) {
+                alert("Please upload a file.");
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const data = new Uint8Array(e.target.result);
+                const workbook = XLSX.read(data, { type: 'array' });
+                const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+                const excelData = XLSX.utils.sheet_to_json(firstSheet, { header: 1 });
+                const dropdown = document.getElementById(dropdownId);
+                dropdown.innerHTML = '<option value="">Select a value</option>'; // Clear existing options
+                excelData.forEach(row => {
+                    if (row[0]) {
+                        dropdown.add(new Option(row[0], row[0])); // Add new option for each value in the first column
+                    }
+                });
+            };
+            reader.readAsArrayBuffer(file);
+        }
+        function removeSelectedOption(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    const selectedOption = dropdown.value;
+    if (selectedOption) {
+        dropdown.remove(dropdown.selectedIndex);
+        alert(`${selectedOption} has been removed.`);
+    } else {
+        alert("Please select an option to remove.");
+    }
+}
+function clearAllOptions(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    
+    // Keep the first "Select a value" option
+    dropdown.innerHTML = '<option value="">Select a value</option>';
+    alert("All options have been cleared.");
+}
+// Function to remove the selected batch from the dropdown
+function removeSelectedOption(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    const selectedOption = dropdown.value;
+    if (selectedOption) {
+        dropdown.remove(dropdown.selectedIndex); // Remove selected option
+        alert(`${selectedOption} has been removed.`);
+    } else {
+        alert("Please select a batch to remove.");
+    }
+}
+// Function to clear all options in the batch dropdown
+function clearAllOptions(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    
+    // Keep the default "Select a batch" option
+    dropdown.innerHTML = '<option value="">Select a batch</option>';
+    alert("All batch options have been cleared.");
+}
+// Function to add a new batch
+function addBatch() {
+    const newBatch = document.getElementById("newBatch").value;
+    if (newBatch) {
+        const dropdown = document.getElementById("batchDropdown");
+        dropdown.add(new Option(newBatch, newBatch));
+        document.getElementById("newBatch").value = ""; // Clear the input
+    } else {
+        alert("Please enter a batch to add.");
+    }
+}
+// Function to remove the selected department from the dropdown
+function removeSelectedOption(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    const selectedOption = dropdown.value;
+    if (selectedOption) {
+        dropdown.remove(dropdown.selectedIndex); // Remove selected option
+        alert(`${selectedOption} has been removed.`);
+    } else {
+        alert("Please select a department to remove.");
+    }
+}
+// Function to clear all options in the department dropdown
+function clearAllOptions(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    
+    // Keep the default "Select a department" option
+    dropdown.innerHTML = '<option value="">Select a department</option>';
+    alert("All department options have been cleared.");
+}
+// Function to add a new department to the dropdown
+function addDepartment() {
+    const newDepartmentName = document.getElementById("newDepartment").value;
+    if (newDepartmentName) {
+        const dropdown = document.getElementById("departmentDropdown");
+        dropdown.add(new Option(newDepartmentName, newDepartmentName));
+        document.getElementById("newDepartment").value = ""; // Clear input
+    } else {
+        alert("Please enter a department name to add.");
+    }
+}
+// Function to add a new semester to the dropdown
+function addSemester() {
+    const newSemester = document.getElementById("newSemester").value;
+    if (newSemester) {
+        const dropdown = document.getElementById("semesterDropdown");
+        dropdown.add(new Option(`Semester ${newSemester}`, newSemester));
+        document.getElementById("newSemester").value = ""; // Clear input
+    } else {
+        alert("Please enter a semester to add.");
+    }
+}
+// Function to remove the selected semester from the dropdown
+function removeSelectedOption(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    const selectedOption = dropdown.value;
+    if (selectedOption) {
+        dropdown.remove(dropdown.selectedIndex); // Remove selected option
+        alert(`Semester ${selectedOption} has been removed.`);
+    } else {
+        alert("Please select a semester to remove.");
+    }
+}
+// Function to clear all options in the semester dropdown
+function clearAllOptions(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    
+    // Keep the default "Select a semester" option
+    dropdown.innerHTML = '<option value="">Select a semester</option>';
+    alert("All semester options have been cleared.");
+}
+function addStudent() {
+            const newStudentName = document.getElementById("newStudent").value;
+            if (newStudentName) {
+                const dropdown = document.getElementById("studentDropdown");
+                dropdown.add(new Option(newStudentName, newStudentName));
+                document.getElementById("newStudent").value = ""; // Clear input
+            } else {
+                alert("Please enter a student name to add.");
+            }
+        }
+        function handleFileUpload(fileInputId, dropdownId) {
+            const fileInput = document.getElementById(fileInputId);
+            const file = fileInput.files[0];
+            if (!file) {
+                alert("Please upload a file.");
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const data = new Uint8Array(e.target.result);
+                const workbook = XLSX.read(data, { type: 'array' });
+                const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+                const excelData = XLSX.utils.sheet_to_json(firstSheet, { header: 1 });
+                const dropdown = document.getElementById(dropdownId);
+                dropdown.innerHTML = '<option value="">Select a value</option>'; // Clear existing options
+                const students = [];
+                excelData.forEach(row => {
+                    if (row[0]) {
+                        dropdown.add(new Option(row[0], row[0])); // Add new option for each value
+                        students.push(row[0]); // Collect students' names
+                    }
+                });
+                // Store student data in localStorage
+                localStorage.setItem('studentData', JSON.stringify(students));
+            };
+            reader.readAsArrayBuffer(file);
+        }
+        function viewStudents() {
+            // Redirect to another page to view the table
+            window.location.href = "View.html";
+        }
+     </script>
+</body>
+</html>

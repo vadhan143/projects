@@ -1,0 +1,210 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Login Form</title> 
+    <link rel="stylesheet" href="css/kce.css"> 
+</head> 
+<body> 
+    <div class="container"> 
+        <div class="login-section"> 
+            <img src="/Project/Project/image/KI Logo.jpeg" alt="" class="hero"> 
+            <div class="login-container"> 
+                <h2>EXAM CELL</h2> 
+                <form id="login-form"> 
+                    <label for="batch">Batch</label> 
+                    <select id="batch"> 
+                        <option value="">Select Batch</option> 
+                        <option value="2021">2021</option> 
+                        <option value="2022">2022</option> 
+                        <option value="2023">2023</option> 
+                        <option value="2024">2024</option> 
+                    </select> 
+ 
+                    <label for="department">Department</label> 
+                    <select id="department"> 
+                        <option value="">Select Department</option> 
+                        <option value="CSE">Computer Science</option> 
+                        <option value="ECE">Electronics Communication</option> 
+                        <option value="ME">Mechanical</option> 
+                        <option value="FT">Food Tech</option> 
+                    </select> 
+ 
+                    <label for="semester">Semester</label> 
+                    <select id="semester"> 
+                        <option value="">Select Semester</option> 
+                        <option value="1">Semester 1</option> 
+                        <option value="2">Semester 2</option> 
+                        <option value="3">Semester 3</option> 
+                        <option value="4">Semester 4</option> 
+                        <option value="5">Semester 5</option> 
+                        <option value="6">Semester 6</option> 
+                        <option value="7">Semester 7</option> 
+                        <option value="8">Semester 8</option> 
+                    </select> 
+ 
+                    <label for="course">Course</label> 
+                    <select id="course"> 
+                        <option value="">Select Course</option> 
+                        <option value="DS">Data Structures</option> 
+                        <option value="DBMS">Database Management Systems</option> 
+                        <option value="OS">Operating Systems</option> 
+                    </select> 
+ 
+                    <label for="course-code">Course Code</label> 
+                    <input type="text" id="course-code" placeholder="e.g., CSE101" readonly> 
+ 
+                    <label for="exam">Name of the Exam</label> 
+                    <select id="exam"> 
+                        <option value="">Select Exam</option> 
+                        <option value="cia1">CIA 1</option> 
+                        <option value="cia2">CIA 2</option> 
+                    </select> 
+ 
+                    <label for="examiner">Name of the Examiner</label> 
+                    <select id="examiner"> 
+                        <option value="">Select Examiner</option> 
+                        <option value="Prof.ashwin">Prof. Ashwin</option> 
+                        <option value="Prof.hari">Prof. Hari</option> 
+                        <option value="Prof.gokul">Prof. Gokul</option> 
+                    </select> 
+ 
+                    <label for="date">Date of Valuation</label> 
+                    <input type="date" id="date"> 
+ 
+                    <input type="hidden" id="reg-number" value="12345"> 
+                    <input type="hidden" id="attendance" value="85">   
+                    <input type="hidden" id="marks" value="75">    
+ 
+                    <button type="submit" href="/Project/Project/Submit.html" id="btn-1">Submit</button> 
+                </form> 
+            </div> 
+        </div> 
+    </div> 
+ 
+    <style> 
+        body { 
+            background-color: #f4f4f4; 
+            margin: 0; 
+            padding: 0; 
+            background-image: url("/Project/Project/image/KI\ backround.jpeg"); 
+            background-repeat: no-repeat; 
+            background-size: cover; 
+            display: flex; 
+            justify-content: center; 
+            align-items: flex-start; 
+            min-height: 100vh; 
+        } 
+ 
+        .container { 
+            display: flex; 
+            justify-content: space-between; 
+            width: 100%; 
+            max-width: 1200px; 
+        } 
+ 
+        .login-section { 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: flex-start; 
+            padding: 20px; 
+        } 
+ 
+        .hero { 
+            width: 260px; 
+            height: 120px; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .login-container { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+            width: 100%; 
+            max-width: 300px; 
+        } 
+ 
+        h2 { 
+            text-align: center; 
+            margin-bottom: 20px; 
+        } 
+ 
+        label { 
+            margin-top: 10px; 
+            display: block; 
+        } 
+ 
+        input, select { 
+            width: 100%; 
+            padding: 8px; 
+            margin-top: 5px; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+        } 
+ 
+        #btn-1 { 
+            width: 100%; 
+            padding: 10px; 
+            margin-top: 15px; 
+            border: none; 
+            border-radius: 4px; 
+            background-color: #007bff; 
+            color: white; 
+            font-size: 16px; 
+            cursor: pointer; 
+        } 
+ 
+        #btn-1:hover { 
+            background-color: #0056b3; 
+        }
+
+        /* Default gray color for the course code input */
+        #course-code {
+            color: gray;
+        }
+
+        /* Change the color when the input has a value */
+        #course-code:valid {
+            color: rgb(64, 61, 61);
+        } 
+ 
+    </style> 
+ 
+    <script> 
+        // Automatically set course code when a course is selected 
+        document.getElementById('course').addEventListener('change', function() { 
+            const courseCodeInput = document.getElementById('course-code'); 
+            const selectedCourse = this.value; 
+             
+            // Define the course codes 
+            const courseCodes = { 
+                'DS': 'CSE101', 
+                'DBMS': 'CSE102', 
+                'OS': 'CSE103',
+                'python':'CSE104' 
+            }; 
+ 
+            // Set the course code based on selected course 
+            courseCodeInput.value = courseCodes[selectedCourse] || ''; 
+            
+            // Change color based on whether a course is selected
+            if (courseCodeInput.value) {
+                courseCodeInput.style.color = 'black';  // Set to black when a value is selected
+            } else {
+                courseCodeInput.style.color = 'gray';  // Keep it gray if no course is selected
+            }
+        }); 
+ 
+        // Form submission logic 
+        document.getElementById('login-form').addEventListener('submit', function(event) { 
+            event.preventDefault(); 
+             
+            // Redirect to the student result page 
+            window.location.href = "Submit.html"; 
+        }); 
+    </script> 
+</body> 
+</html>

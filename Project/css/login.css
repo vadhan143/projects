@@ -1,0 +1,116 @@
+/* Style adjustments for the login box */
+.section .loginbox {
+    width: 380px; /* Adjusted width */
+    height: auto; /* Allow height to adapt to content */
+    left: 50%;    /* Center horizontally */
+    top: 50%;     /* Center vertically */
+    transform: translate(-50%, -50%); /* Centering trick */
+    position: absolute;
+    background-color: #fff;
+    padding: 20px; /* Add padding for content */
+    border-radius: 10px; /* Rounded corners */
+    -webkit-box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2); /* Softer shadow */
+    z-index: 100;
+}
+
+.section .loginbox h1 {
+    text-align: center;
+    font-size: 24px;
+    padding: 15px 0;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #5d5b5b; /* Darker background for heading */
+    border-radius: 10px 10px 0 0; /* Rounded corners at the top */
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.section .loginbox ul {
+    padding: 0;
+    margin: 0;
+}
+
+.section .loginbox ul li {
+    list-style-type: none;
+    text-align: center;
+    padding: 15px 0;
+    margin: 10px 0;
+    background-color: #f2f2f2; /* Light background */
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+    border-radius: 5px; /* Rounded corners for list items */
+    transition: all 0.4s ease; /* Smoother transition */
+}
+
+.section .loginbox ul li:hover {
+    background-color:gray; /* Orange highlight on hover */
+    color: #fff;
+    cursor: pointer;
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.section .loginbox ul li a {
+    text-decoration: none;
+    color: inherit; /* Inherit text color */
+    display: block; /* Block display for better clickability */
+    width: 100%;
+}
+
+/* Style for the header */
+.header {
+    border-top: 6px solid #f37435;
+    border-bottom: 1px solid #c8c8c8;
+    background-color: #fff;
+    height: 110px;
+    position: fixed; /* Fix position to the top */
+    width: 100%;
+    z-index: 1000;
+}
+
+.container {
+    width: 94%;
+    max-width: 1260px;
+    margin: 0 auto;
+}
+
+/* Footer */
+.footer {
+    background-color: #ede5e5;
+    position: fixed; /* Fix position at the bottom */
+    width: 100%;
+    bottom: 0;
+    border-top: 1px solid #d4d4d4;
+    height: 40px;
+    color: #4a4a4a;
+    text-align: center;
+    line-height: 40px;
+    z-index: 1000;
+}
+
+/* Background slider images */
+#slider1 li img {
+    min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: -2px;
+    left: 0;
+    z-index: 0;
+}
+
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fff;
+    font-family: 'Open Sans', sans-serif;
+}

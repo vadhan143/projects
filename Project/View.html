@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Dynamic data will be inserted here -->
+        </tbody>
+    </table>
+    <script>
+        // Retrieve student data from localStorage
+        const studentData = JSON.parse(localStorage.getItem('studentData'));
+        if (studentData && studentData.length > 0) {
+            const tableBody = document.querySelector('#studentTable tbody');
+            studentData.forEach(student => {
+                const row = document.createElement('tr');
+                const cell = document.createElement('td');
+                cell.textContent = student;
+                row.appendChild(cell);
+                tableBody.appendChild(row);
+            });
+        } else {
+            const tableBody = document.querySelector('#studentTable tbody');
+            const row = document.createElement('tr');
+            const cell = document.createElement('td');
+            cell.textContent = "No student data available.";
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+        }
+    </script>
+</body>
+</html>

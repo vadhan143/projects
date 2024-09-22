@@ -1,0 +1,62 @@
+table {
+    margin-left: 25%;
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+}
+
+th {
+    background-color: #fefefe;
+    color: black;
+}
+
+.attendance-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 505; /* Box width */
+    height: 40px; /* Box height */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.tick {
+    display: none;
+    color: green;
+    font-size: 20px;
+}
+
+.attendance-cell.active .tick {
+    display: block;
+}
+
+.edit-input {
+    display: none;
+    width: 40px;
+}
+#download-excel-btn {
+    background-color: #4CAF50; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; 
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease; 
+    margin-left: 40%;
+}
+
+#download-excel-btn:hover {
+    background-color: #45a049;
+}
